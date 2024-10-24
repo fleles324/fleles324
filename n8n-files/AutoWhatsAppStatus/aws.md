@@ -24,3 +24,16 @@
 - Para empresas que precisam de uma solução escalável, o n8n permite automatizar o processo de postagem para múltiplas contas de WhatsApp. Isso é especialmente útil para marcas que possuem várias contas ou que gerenciam diferentes perfis regionais.
 
 ### Esses benefícios fazem do n8n uma ferramenta poderosa para empresas que querem melhorar sua presença digital no WhatsApp, utilizando automações para ganhar tempo e aumentar a eficiência nas postagens.
+
+### Inscreva-se no canal [@rickleles no YouTube](https://www.youtube.com/channel/UCRtctFKjrilIhyX-fQ_B3Jg?sub_confirmation=1)
+
+---
+## 🦸 Autor
+
+
+Rick Leles</a>
+ <br />
+ 
+[![Gmail Badge](https://img.shields.io/badge/-fleles324@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:mthalvarez2005@gmail.com)](mailto:mthalvarez2005@gmail.com)
+
+---
