@@ -23,3 +23,16 @@ Uma vez que o áudio é transcrito para texto, é possível aplicar ferramentas 
 Com o texto disponível, buscar por informações específicas em grandes volumes de dados se torna muito mais fácil, já que é possível utilizar ferramentas de busca em texto para localizar palavras ou frases.
 
 ### Esses benefícios fazem do transcritor de áudio uma ferramenta indispensável para fluxos de trabalho mais otimizados e inteligentes no n8n.
+
+### Inscreva-se no canal [@rickleles no YouTube](https://www.youtube.com/channel/UCRtctFKjrilIhyX-fQ_B3Jg?sub_confirmation=1)
+
+---
+## 🦸 Autor
+
+
+Rick Leles</a>
+ <br />
+ 
+[![Gmail Badge](https://img.shields.io/badge/-fleles324@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:mthalvarez2005@gmail.com)](mailto:mthalvarez2005@gmail.com)
+
+---
