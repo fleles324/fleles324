@@ -87,6 +87,6 @@ Chave: `6d137d50-ea2c-4fa8-ae86-e8c727085c58`
 Rick Leles</a>
  <br />
  
-[![Gmail Badge](https://img.shields.io/badge/-fleles324@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:mthalvarez2005@gmail.com)](mailto:mthalvarez2005@gmail.com)
+[![Gmail Badge](https://img.shields.io/badge/-fleles324@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:fleles324@gmail.com)](mailto:fleles324@gmail.com)
 
 ---
