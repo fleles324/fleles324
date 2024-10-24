@@ -1,5 +1,17 @@
+
+<!-- MODELO MENU DE NAVEGAÇÃO -->
+<p align="center">
+ <a href="#-N8N-Workflows">N8N Workflows</a> •
+ <a href="#-Flows-postados">Flows postados</a> •
+ <a href="#-Sobre-o-Repositório">Sobre o Repositório</a> •
+ <a href="#-Doações">Doações</a> • 
+ <a href="#-autor">Autor</a> • 
+ <a href="#user-content--licença">Licença</a>
+</p>
+
 # N8N Workflows 
 ---
+
 Bem-vindo ao repositório oficial de Workflows N8N, especialmente desenvolvido para você que acompanha o canal @rickleles no YouTube! Este repositório reúne os melhores workflows de N8N criados e apresentados nos nossos vídeos tutoriais, com foco em automação de processos e integração de sistemas.
 
 ---
@@ -49,6 +61,8 @@ Se você tiver dúvidas ou enfrentar algum problema ao utilizar os workflows de 
 ### Licença
 Este projeto é licenciado sob a [MIT License](https://github.com/gabriel-g2n/workflows/blob/main/LICENSE). Sinta-se livre para usar, modificar e distribuir, respeitando os termos da licença.
 
+---
+# Doações
 > [!IMPORTANT]
 > caso queira me ajudar a comprar um fone novo para novas gravações, eu aceito sua doação!
 
