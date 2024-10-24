@@ -1,0 +1,308 @@
+{
+  "meta": {
+    "instanceId": "a09197f2ebd5d0e70f4c2d405c2727a5edeaaeb2b140b3de436362e346eeb71f"
+  },
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 7-23/2 * * *"
+            }
+          ]
+        }
+      },
+      "id": "e981d937-6f78-4015-813e-65fecb5b95fb",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        680,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Verifique a estrutura dos itens que vêm do nó \"DB\"\nconst itens = items.map(item => {\n  const arquivo = item.json.Arquivo[0];  // Captura o primeiro arquivo\n  \n  // Verifica o mime_type para classificar como imagem ou vídeo\n  const tipo = arquivo.mime_type.match(/^image\\//) ? 'image' : 'video';\n  \n  return {\n    id: item.json.id,                    // Captura o ID\n    mensagem: item.json.Mensagem,        // Captura a mensagem\n    url: arquivo.url,                    // Captura a URL do arquivo\n    tipo: tipo,                          // Identifica se é imagem ou vídeo\n    mime_type: arquivo.mime_type,        // Captura o tipo MIME\n    is_image: tipo === 'image'           // Verifica se é imagem (booleano)\n  };\n});\n\n// Escolha um conjunto aleatório de ID, mensagem e arquivo\nconst itemAleatorio = itens[Math.floor(Math.random() * itens.length)];\n\n// Retorne o ID, a mensagem, a URL, o tipo de arquivo, o mime_type e se é imagem\nreturn [{\n  json: {\n    id: itemAleatorio.id,           // ID aleatório\n    mensagem: itemAleatorio.mensagem, // Mensagem correspondente\n    url: itemAleatorio.url,          // URL do arquivo\n    tipo: itemAleatorio.tipo,        // Tipo do arquivo (imagem ou vídeo)\n    mime_type: itemAleatorio.mime_type, // Tipo MIME\n    is_image: itemAleatorio.is_image  // Verifica se é imagem (booleano)\n  }\n}];\n"
+      },
+      "id": "772d5cf5-55f7-438c-b61d-50a66d0c2fe9",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "databaseId": 139725,
+        "tableId": 359542,
+        "returnAll": true,
+        "additionalOptions": {
+          "filters": {
+            "fields": [
+              {
+                "field": 2689466,
+                "operator": "empty"
+              }
+            ]
+          }
+        }
+      },
+      "id": "df95fc60-6408-42ec-8249-0891a4fdad4b",
+      "name": "DB",
+      "type": "n8n-nodes-base.baserow",
+      "typeVersion": 1,
+      "position": [
+        900,
+        540
+      ],
+      "credentials": {
+        "baserowApi": {
+          "id": "XwVZDrDnr1Bpd1Bn",
+          "name": "Baserow account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9feefea7-3660-4ced-ae86-bc836b3accbc",
+              "name": "UrleBase",
+              "value": "https://seudominio.com.br",
+              "type": "string"
+            },
+            {
+              "id": "e07ee732-54f5-4fc8-84da-d244e06f7220",
+              "name": "Intance",
+              "value": "YoutubeTeste",
+              "type": "string"
+            },
+            {
+              "id": "501a70c3-d274-422d-9389-b0cd9757ddef",
+              "name": "Apikey",
+              "value": "suachave aqui",
+              "type": "string"
+            },
+            {
+              "id": "4d56dac4-3203-4617-bcbd-c490e81319f7",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "number"
+            },
+            {
+              "id": "ff0331f7-2b82-4894-a7d2-32bce78dfe8c",
+              "name": "mensagem",
+              "value": "={{ $json.mensagem }}",
+              "type": "string"
+            },
+            {
+              "id": "a0285f12-37aa-4dc7-a50f-ac64bd79fa78",
+              "name": "url",
+              "value": "={{ $json.url }}",
+              "type": "string"
+            },
+            {
+              "id": "01d07605-f3a9-4be9-bdf4-c127b6e941b2",
+              "name": "tipo",
+              "value": "={{ $json.tipo }}",
+              "type": "string"
+            },
+            {
+              "id": "35e2d833-d171-4044-b0d7-0a5ad9d20a73",
+              "name": "mime_type",
+              "value": "={{ $json.mime_type }}",
+              "type": "string"
+            },
+            {
+              "id": "7e61c96e-3b2b-42da-bd4f-0f45f9317197",
+              "name": "is_image",
+              "value": "={{ $json.is_image }}",
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c49957ae-61cd-48cc-af4b-0456cc3809ae",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        680,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $item(\"0\").$node[\"Edit Fields\"].json[\"UrleBase\"] }}/message/sendStatus/{{ $item(\"0\").$node[\"Edit Fields\"].json[\"Intance\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $item(\"0\").$node[\"Edit Fields\"].json[\"Apikey\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"type\": \"{{ $item(\"0\").$node[\"Edit Fields\"].json[\"tipo\"] }}\",\n  \"content\": \"{{ $item(\"0\").$node[\"Edit Fields\"].json[\"url\"] }}\",\n  \"caption\": \"\",\n  \"backgroundColor\": \"#008000\",\n  \"font\": 1,\n  \"allContacts\": true,\n  \"statusJidList\": [\n    \"559999999999 (Recipient number with Country Code)@s.whatsapp.net\"\n  ]\n}",
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "bdcbab01-d4f1-4a2e-b8dd-e176142168d0",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        920,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "databaseId": 139725,
+        "tableId": 359542,
+        "rowId": "={{ $item(\"0\").$node[\"Code\"].json[\"id\"] }}",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": 2689466,
+              "fieldValue": "={{ true }}"
+            }
+          ]
+        }
+      },
+      "id": "a2394751-882d-4652-89b0-11860ea6f8e4",
+      "name": "Baserow",
+      "type": "n8n-nodes-base.baserow",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        760
+      ],
+      "credentials": {
+        "baserowApi": {
+          "id": "XwVZDrDnr1Bpd1Bn",
+          "name": "Baserow account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## STATUS AUTOMÁTICO NO WHATSAPP\n[Rick Leles](https://wa.me/559281260140)",
+        "height": 488.7766990291263,
+        "width": 966.2135922330101,
+        "color": 4
+      },
+      "id": "9d069cae-b530-419b-9350-ad9e96223c68",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        460,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "content": "Edite aqui as suas credenciais",
+        "height": 185.08737864077665,
+        "width": 222.83495145631068,
+        "color": 3
+      },
+      "id": "d1ab4ae0-67d6-4471-af68-e1afbe373306",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        639.4174757281553,
+        726.2135922330096
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## crie sua conta no baserow\n[AQUI](https://baserow.io/)",
+        "height": 193.00970873786406,
+        "width": 489.55339805825224
+      },
+      "id": "3b87fbeb-450b-45ab-84f7-2c7d9d8c8869",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        820,
+        500
+      ]
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "DB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DB": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Baserow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {}
+}
