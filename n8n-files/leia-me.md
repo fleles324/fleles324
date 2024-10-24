@@ -66,7 +66,7 @@ Este projeto é licenciado sob a [MIT License](https://github.com/gabriel-g2n/wo
 > [!IMPORTANT]
 > caso queira me ajudar a comprar um fone novo para novas gravações, eu aceito sua doação!
 
-![Imagem do WhatsApp de 2024-10-23 à(s) 19 46 34_1e6e6987](https://github.com/user-attachments/assets/1ffde69f-e48d-4fc0-86a5-7994719e10c4)
+![Imagem do WhatsApp de 2024-10-23 à(s) 19 46 34_288a4596](https://github.com/user-attachments/assets/c56bfb71-9f08-4f46-946e-2d2d2cee5dcd)
 
 Chave: `6d137d50-ea2c-4fa8-ae86-e8c727085c58`
 
