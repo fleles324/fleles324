@@ -1,7 +1,7 @@
 # Postagem automática no Status do WhatsApp
-- [x] Status WhatsApp Automático - [Clique Aqui](https://github.com/fleles324/n8n-Workflows/blob/main/Status-WhatsApp)
+- [x] Status WhatsApp Automático - [Clique Aqui](https://github.com/fleles324/fleles324/blob/main/n8n-files/AutoWhatsAppStatus/AutoStatus)
 
-![Imagem do WhatsApp de 2024-10-23 à(s) 19 31 17_2192da7e](https://github.com/user-attachments/assets/4f9738c4-2abc-4e13-a112-514192ceb863)
+![Imagem do WhatsApp de 2024-10-23 à(s) 19 31 17_d2239caf](https://github.com/user-attachments/assets/4eb8811a-994f-4956-9ff9-b43290113b2b)
 
 ### Usar o n8n para postar automaticamente nos status do WhatsApp traz diversos benefícios que podem otimizar o gerenciamento de conteúdo e melhorar a comunicação com seu público. Aqui estão os principais pontos:
 
