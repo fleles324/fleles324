@@ -59,7 +59,7 @@ Se você tiver dúvidas ou enfrentar algum problema ao utilizar os workflows de 
 
 ---
 ### Licença
-Este projeto é licenciado sob a [MIT License](https://github.com/gabriel-g2n/workflows/blob/main/LICENSE). Sinta-se livre para usar, modificar e distribuir, respeitando os termos da licença.
+Este projeto é licenciado sob a [MIT License](https://github.com/fleles324/fleles324/blob/main/LICENSE). Sinta-se livre para usar, modificar e distribuir, respeitando os termos da licença.
 
 ---
 # Doações
