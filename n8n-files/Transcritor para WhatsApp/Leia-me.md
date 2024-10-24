@@ -1,7 +1,7 @@
 # Transcritor de áudio para n8n
 ---
 
-- [x] Transcritor para áudio do WhatsApp - [Clique Aqui](https://github.com/fleles324/fleles324/blob/main/n8n-files/AutoWhatsAppStatus/AutoStatus)
+- [x] Transcritor para áudio do WhatsApp - [Clique Aqui](https://github.com/fleles324/fleles324/blob/main/n8n-files/Transcritor%20para%20WhatsApp/TranscritorWhatsApp)
 
 ![Imagem do WhatsApp de 2024-10-24 à(s) 00 01 49_6bb746c7](https://github.com/user-attachments/assets/f6609e9c-4ca7-4e3d-b153-c64867ec1690)
 
