@@ -22,20 +22,25 @@
   
 ### Principais habilidades:
 ![JavaScript](https://img.shields.io/badge/-JavaScript-0D1117?style=for-the-badge&logo=javascript&labelColor=0D1117&textColor=0D1117)&nbsp;
-![C#](https://img.shields.io/badge/-n8n-0D1117?style=for-the-badge&logo=n8n&logoColor=purple&labelColor=0D1117)&nbsp; 
+![n8n](https://img.shields.io/badge/-n8n-0D1117?style=for-the-badge&logo=n8n&logoColor=purple&labelColor=0D1117)&nbsp; 
  
 ### Ferramentas:
 ![Visual Studio](https://img.shields.io/badge/-Visual%20Studio-0D1117?style=for-the-badge&logo=visual-studio&logoColor=C8A2C8&labelColor=0D1117)&nbsp;
 ![GitHub](https://img.shields.io/badge/-GitHub-0D1117?style=for-the-badge&logo=github&labelColor=0D1117)&nbsp;
 ![Windows](https://img.shields.io/badge/-Windows-0D1117?style=for-the-badge&logo=windows&labelColor=0D1117)&nbsp;
 ![microsoft-office](https://img.shields.io/badge/-microsoft_office-0D1117?style=for-the-badge&logo=microsoft-office&labelColor=0D1117)&nbsp;
+![google-sheets](https://img.shields.io/badge/-Google_Sheets-0D1117?style=for-the-badge&logo=googlesheets&logoColor=purple&labelColor=0D1117)&nbsp; 
+![google-meet](https://img.shields.io/badge/-Google_Meet-0D1117?style=for-the-badge&logo=googlemeet&logoColor=purple&labelColor=0D1117)&nbsp; 
+![openai](https://img.shields.io/badge/-OpenAi-0D1117?style=for-the-badge&logo=openai&logoColor=purple&labelColor=0D1117)&nbsp; 
+
  
 ### Outros conhecimentos:
 ![MySQL](https://img.shields.io/badge/-mysql-0D1117?style=for-the-badge&logo=mysql&labelColor=0D1117)&nbsp;
 ![Figma](https://img.shields.io/badge/-figma-0D1117?style=for-the-badge&logo=figma&labelColor=0D1117)&nbsp;
   
 ### Estudando neste momento:
-![Node.JS](https://img.shields.io/badge/-n8n-0D1117?style=for-the-badge&logo=n8n&labelColor=0D1117&textColor=0D1117)&nbsp;
+![N8N](https://img.shields.io/badge/-n8n-0D1117?style=for-the-badge&logo=n8n&labelColor=0D1117&textColor=0D1117)&nbsp;
+![Cal.com](https://img.shields.io/badge/-Cal.com-0D1117?style=for-the-badge&logo=caldotcom&labelColor=0D1117&textColor=0D1117)&nbsp;
 
 <div align="center">
 <br><p align="centre"><b>Contagem de visitantes</b></p>  
