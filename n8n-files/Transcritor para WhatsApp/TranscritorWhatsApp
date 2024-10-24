@@ -17,7 +17,7 @@
       "type": "n8n-nodes-base.convertToFile",
       "typeVersion": 1.1,
       "position": [
-        -740,
+        -660,
         1780
       ]
     },
@@ -48,52 +48,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -940,
+        -860,
         1780
-      ]
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 1
-          },
-          "conditions": [
-            {
-              "id": "244ad627-3ae4-4675-b5eb-f202510764ad",
-              "leftValue": "={{ $json.body.data.key.fromMe }}",
-              "rightValue": "true",
-              "operator": {
-                "type": "boolean",
-                "operation": "true",
-                "singleValue": true
-              }
-            },
-            {
-              "id": "6dda70da-e4e8-4e08-9f99-49a3f3b8833b",
-              "leftValue": "={{ $item(\"0\").$node[\"normalizacao\"].json[\"message\"][\"content_type\"] }}",
-              "rightValue": "audio",
-              "operator": {
-                "type": "string",
-                "operation": "equals",
-                "name": "filter.operator.equals"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "id": "27966e75-a261-4069-98a5-a5b5dd269c9d",
-      "name": "If3",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2,
-      "position": [
-        -1360,
-        1880
       ]
     },
     {
@@ -187,7 +143,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -1560,
+        -1620,
         1880
       ]
     },
@@ -218,25 +174,9 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -340,
+        -260,
         1780
       ]
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "transcricao",
-        "options": {}
-      },
-      "id": "543bdefd-0451-451f-8493-eec799cef797",
-      "name": "Webhook",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
-      "position": [
-        -1760,
-        1880
-      ],
-      "webhookId": "95eb9207-69da-4fad-9a3d-4c4ca248e0bf"
     },
     {
       "parameters": {
@@ -248,7 +188,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -940,
+        -860,
         1980
       ]
     },
@@ -263,7 +203,7 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.5,
       "position": [
-        -540,
+        -460,
         1780
       ],
       "credentials": {
@@ -318,7 +258,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -540,
+        -460,
         1980
       ]
     },
@@ -326,7 +266,7 @@
       "parameters": {
         "content": "## transcritor Híbrido\n## Criado por [Rick Leles](https://wa.me/559281260140)",
         "height": 611.3222331048,
-        "width": 1696.6965760243165,
+        "width": 1774.9377226647362,
         "color": 4
       },
       "id": "7a744a6c-7cdf-4d25-9a21-83cf1da2763b",
@@ -334,8 +274,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -1809.9776729880768,
-        1660.1371204701272
+        -1860,
+        1660
       ]
     },
     {
@@ -349,7 +289,7 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.5,
       "position": [
-        -740,
+        -660,
         1980
       ],
       "credentials": {
@@ -358,6 +298,158 @@
           "name": "VendedorGas"
         }
       }
+    },
+    {
+      "parameters": {
+        "content": "Coloque suas credênciasi do Opne.AI",
+        "height": 222.0568070519099,
+        "width": 209.9118511263468,
+        "color": 6
+      },
+      "id": "6a80b242-ad54-41a5-86f4-67764b0951da",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -730,
+        1720
+      ]
+    },
+    {
+      "parameters": {
+        "content": "Coloque suas credênciasi do Opne.AI",
+        "height": 214.5347698334966,
+        "width": 209.9118511263468,
+        "color": 6
+      },
+      "id": "8dbfe3b6-013f-4924-8212-e78578294674",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -940,
+        1938
+      ]
+    },
+    {
+      "parameters": {
+        "content": "é só copiar o link de\nTeste/Produção e colar na sua Evolution V1/V2",
+        "height": 231.45935357492624,
+        "width": 191.1067580803136,
+        "color": 3
+      },
+      "id": "64702b0e-b362-42e8-8b68-ff604a42d60c",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1840,
+        1796
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7e2668a8-d45e-4c8b-b285-4d2c67992319",
+              "leftValue": "={{ $item(\"0\").$node[\"normalizacao\"].json[\"message\"][\"chat_id\"] }}",
+              "rightValue": "120363312699206310@g.us",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "3f900048-1792-41f8-b716-1fb69b12eddd",
+              "leftValue": "={{ $item(\"0\").$node[\"normalizacao\"].json[\"message\"][\"chat_id\"] }}",
+              "rightValue": "120363321476906032@g.us",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "id": "3360ee43-3aad-4991-b9a1-05af67f86cb5",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1460,
+        1880
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "244ad627-3ae4-4675-b5eb-f202510764ad",
+              "leftValue": "={{ $json.body.data.key.fromMe }}",
+              "rightValue": "true",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "6dda70da-e4e8-4e08-9f99-49a3f3b8833b",
+              "leftValue": "={{ $item(\"0\").$node[\"normalizacao\"].json[\"message\"][\"content_type\"] }}",
+              "rightValue": "audio",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "27966e75-a261-4069-98a5-a5b5dd269c9d",
+      "name": "If2",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -1260,
+        1880
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "transcricao",
+        "options": {}
+      },
+      "id": "543bdefd-0451-451f-8493-eec799cef797",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -1800,
+        1880
+      ],
+      "webhookId": "95eb9207-69da-4fad-9a3d-4c4ca248e0bf"
     },
     {
       "parameters": {
@@ -421,56 +513,24 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        -1140,
+        -1060,
         1880
       ]
     },
     {
       "parameters": {
-        "content": "Coloque suas credênciasi do Opne.AI",
-        "height": 222.0568070519099,
+        "content": "Coloque o ID do Grupo Ignorado aqui.\npor padrão ja tem 2",
+        "height": 246.7991604864612,
         "width": 209.9118511263468,
-        "color": 6
+        "color": 5
       },
-      "id": "6a80b242-ad54-41a5-86f4-67764b0951da",
-      "name": "Sticky Note1",
+      "id": "08966278-9c08-4188-a577-c1b7c9d01e6f",
+      "name": "Sticky Note4",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -589.9118511263473,
-        1720
-      ]
-    },
-    {
-      "parameters": {
-        "content": "Coloque suas credênciasi do Opne.AI",
-        "height": 214.5347698334966,
-        "width": 209.9118511263468,
-        "color": 6
-      },
-      "id": "8dbfe3b6-013f-4924-8212-e78578294674",
-      "name": "Sticky Note2",
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        -800,
-        1938.1194906953967
-      ]
-    },
-    {
-      "parameters": {
-        "content": "é só copiar o link de\nTeste/Produção e colar na sua Evolution V1/V2",
-        "height": 231.45935357492624,
-        "width": 191.1067580803136,
-        "color": 3
-      },
-      "id": "64702b0e-b362-42e8-8b68-ff604a42d60c",
-      "name": "Sticky Note3",
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        -1800,
-        1796.2389813907935
+        -1500,
+        1800
       ]
     }
   ],
@@ -497,34 +557,11 @@
         ]
       ]
     },
-    "If3": {
-      "main": [
-        null,
-        [
-          {
-            "node": "Switch",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "normalizacao": {
       "main": [
         [
           {
-            "node": "If3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Webhook": {
-      "main": [
-        [
-          {
-            "node": "normalizacao",
+            "node": "If",
             "type": "main",
             "index": 0
           }
@@ -558,6 +595,41 @@
         [
           {
             "node": "EvolutionV2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        null,
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        null,
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "normalizacao",
             "type": "main",
             "index": 0
           }
