@@ -21,8 +21,7 @@
 [![C#](https://img.shields.io/badge/-n8n-0D1117?style=for-the-badge&logo=n8n&logoColor=purple&labelColor=0D1117)&nbsp;](https://github.com/fleles324/fleles324/blob/main/n8n-files/leia-me.md)
   
 ### Principais habilidades:
-![JavaScript](https://img.shields.io/badge/-JavaScript-0D1117?style=for-the-badge&logo=javascript&labelColor=0D1117&textColor=0D1117)&nbsp;
-![n8n](https://img.shields.io/badge/-n8n-0D1117?style=for-the-badge&logo=n8n&logoColor=purple&labelColor=0D1117)&nbsp; 
+![Progressive-Web-App](https://img.shields.io/badge/-PWA-0D1117?style=for-the-badge&logo=pwa&labelColor=0D1117&textColor=0D1117)&nbsp;
  
 ### Ferramentas:
 ![Visual Studio](https://img.shields.io/badge/-Visual%20Studio-0D1117?style=for-the-badge&logo=visual-studio&logoColor=C8A2C8&labelColor=0D1117)&nbsp;
