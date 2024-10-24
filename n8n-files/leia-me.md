@@ -4,7 +4,7 @@ Bem-vindo ao repositório oficial de Workflows N8N, especialmente desenvolvido p
 
 ---
 # Flows postados:
- - [x] AutoStatusWhats [Saiba mais...](https://github.com/fleles324/n8n-Workflows/blob/main/StatusWhatsApp.md)
+ - [x] AutoStatusWhats [Saiba mais...](https://github.com/fleles324/fleles324/blob/main/n8n-files/AutoWhatsAppStatus/aws.md)
  - [ ] Transcritor de áudo - Em Breve [Saiba mais...](https://github.com/fleles324/n8n-Workflows/blob/main/Transcritor.md)
   
 ---     
