@@ -1,5 +1,8 @@
 # Transcritor de áudio para n8n
 ---
+
+- [x] Transcritor para áudio do WhatsApp - [Clique Aqui](https://github.com/fleles324/fleles324/blob/main/n8n-files/AutoWhatsAppStatus/AutoStatus)
+
 ![Imagem do WhatsApp de 2024-10-24 à(s) 00 01 49_6bb746c7](https://github.com/user-attachments/assets/f6609e9c-4ca7-4e3d-b153-c64867ec1690)
 
 Usar um transcritor de áudio no n8n oferece uma série de benefícios para fluxos automatizados, especialmente para empresas que lidam com grandes volumes de conteúdo em áudio. Aqui estão algumas das principais vantagens:
