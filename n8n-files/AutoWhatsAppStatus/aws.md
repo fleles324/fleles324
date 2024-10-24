@@ -34,6 +34,6 @@
 Rick Leles</a>
  <br />
  
-[![Gmail Badge](https://img.shields.io/badge/-fleles324@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:mthalvarez2005@gmail.com)](mailto:mthalvarez2005@gmail.com)
+[![Gmail Badge](https://img.shields.io/badge/-fleles324@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:fleles324@gmail.com)](mailto:fleles324@gmail.com)
 
 ---
