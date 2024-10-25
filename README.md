@@ -30,7 +30,7 @@
   <a href = "mailto:fleles324@gmail.com">
     <img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail">
   </a>
-  <a href = "mailto:fleles324@gmail.com">
+  <a href = "#">
     <img src="https://img.shields.io/github/downloads/fleles324/{repo-name}/total.svg" alt="Gmail">
   </a>
 </div>
