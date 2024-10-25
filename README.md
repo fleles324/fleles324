@@ -14,37 +14,17 @@
 
 
 ---
-# MEIOS DE CONTATO:
-<div align="center">
-  <a href="https://www.facebook.com/profile.php?id=61563525600596" target="_blank">
-    <img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white">
-  </a>
-  <a href="https://www.youtube.com/@rickleles" target="_blank">
-    <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube">
-  </a>
-  <a href = "https://github.com/fleles324/fleles324/edit/main/README.md">
-    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
-  </a>
-  <a href = "mailto:fleles324@gmail.com">
-    <img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail">
-  </a>
-  <a href = "#">
-    <img src="https://img.shields.io/github/downloads/fleles324/{repo-name}/total.svg" alt="Gmail">
-  </a>
-</div>
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/Comunidade_no_Whatsapp-4EA94B?style=for-the-badge&labelColor=black&logo=whatsapp&logoColor=4EA94B" alt="Comunidade no Whatsapp #01"></a>    
+ <a href="https://youtube.com/@rickleles"><img src="https://img.shields.io/badge/Rick_Leles-FF0000?style=for-the-badge&labelColor=ffffff&logo=youtube&logoColor=FF0000" alt="Inscreva-se no meu canal"></a>
+</p>
 
-![GitHub followers](https://img.shields.io/github/followers/fleles324?label=Follow&style=social)
 [![Ashutosh's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=fleles324&bg_color=000000&color=15e5a6&line=07e9a5&point=0a855c&area=true&hide_border=true)](https://github.com/ashutosh00710/github-readme-activity-graph)
 ---  
-<a>
-  📫 Gostaria de me conhecer?
-Escolha um horário se quiser me conhecer e conversar sobre qualquer coisa que você seja apaixonado - mas certifique-se de descrever a agenda.
-  
-<a href="https://cal.com/rl-studio/30min" target="_blank"><img width="498" alt="meet_link" src="https://user-images.githubusercontent.com/15426564/144297439-f530f383-e73e-41e0-9914-a9b7d3f432e5.png"></a>
-  
-  ---
+
  ### Arquivos para copiar: 
-[![n8n](https://img.shields.io/badge/-n8n-0D1117?style=for-the-badge&logo=n8n&logoColor=purple&labelColor=0D1117)](https://github.com/fleles324/fleles324/blob/main/n8n-files/README.md)
+ <a href="https://github.com/fleles324/fleles324/blob/main/n8n-files/README.md"><img src="https://img.shields.io/badge/Fluxos_para_download-FF0000?style=for-the-badge&labelColor=ffffff&logo=n8n&logoColor=FF0000" alt="Donwloads"></a>
+</p>
 
 ---
 ### Principais habilidades:
