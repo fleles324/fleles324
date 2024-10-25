@@ -13,9 +13,29 @@
   <img src="https://github-profile-trophy.vercel.app/?username=fleles324&theme=dracula&row=2&no-bg=true&column=3&margin-w=15&margin-h=15" />
 </p>
 
-<div align="center">  
-<a href="https://www.instagram.com/rickleles/" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white"</a>
-</div> 
+
+
+---
+# MEIOS DE CONTATO:
+<div align="center">
+  <a href="https://www.facebook.com/profile.php?id=61563525600596" target="_blank">
+    <img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white">
+  </a>
+  <a href="https://www.youtube.com/@rickleles" target="_blank">
+    <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube">
+  </a>
+  <a href = "https://github.com/fleles324/fleles324/edit/main/README.md">
+    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
+  </a>
+  <a href = "mailto:fleles324@gmail.com">
+    <img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail">
+  </a>
+  <a href = "mailto:fleles324@gmail.com">
+    <img src="https://img.shields.io/github/downloads/fleles324/{repo-name}/total.svg" alt="Gmail">
+  </a>
+</div>
+
+---  
   
  ### Arquivos para copiar: 
 [![n8n](https://img.shields.io/badge/-n8n-0D1117?style=for-the-badge&logo=n8n&logoColor=purple&labelColor=0D1117)](https://github.com/fleles324/fleles324/blob/main/n8n-files/README.md)
