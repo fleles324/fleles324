@@ -7,8 +7,6 @@
   <img width="41%" height="195px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=fleles324&layout=compact&hide_border=true&title_color=00bfbf&text_color=00bfbf&bg_color=0d1117" />
 </div>
 
-[![Ashutosh's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=fleles324&bg_color=000000&color=15e5a6&line=07e9a5&point=0a855c&area=true&hide_border=true)](https://github.com/ashutosh00710/github-readme-activity-graph)
-
 <p align="center">
   <img src="https://github-profile-trophy.vercel.app/?username=fleles324&theme=dracula&row=2&no-bg=true&column=3&margin-w=15&margin-h=15" />
 </p>
@@ -35,11 +33,20 @@
   </a>
 </div>
 
+![GitHub followers](https://img.shields.io/github/followers/fleles324?label=Follow&style=social)
+[![Ashutosh's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=fleles324&bg_color=000000&color=15e5a6&line=07e9a5&point=0a855c&area=true&hide_border=true)](https://github.com/ashutosh00710/github-readme-activity-graph)
 ---  
+<a>
+  📫 Gostaria de me conhecer?
+Escolha um horário se quiser me conhecer e conversar sobre qualquer coisa que você seja apaixonado - mas certifique-se de descrever a agenda.
   
+<a href="https://calendly.com/fleles/30min" target="_blank"><img width="498" alt="meet_link" src="https://user-images.githubusercontent.com/15426564/144297439-f530f383-e73e-41e0-9914-a9b7d3f432e5.png"></a>
+  
+  ---
  ### Arquivos para copiar: 
 [![n8n](https://img.shields.io/badge/-n8n-0D1117?style=for-the-badge&logo=n8n&logoColor=purple&labelColor=0D1117)](https://github.com/fleles324/fleles324/blob/main/n8n-files/README.md)
-  
+
+---
 ### Principais habilidades:
 ![Progressive-Web-App](https://img.shields.io/badge/-PWA-0D1117?style=for-the-badge&logo=pwa&labelColor=0D1117&textColor=0D1117)&nbsp;
  
