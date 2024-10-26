@@ -1,4 +1,12 @@
-- [x] Leitura de Mídias com n8n [Clique aqui](https://github.com/fleles324/fleles324/blob/main/n8n-files/Leitura%20de%20M%C3%ADdias%20com%20n8n/Leitura%20de%20midias)
+- [x] Leitura de Mídias com n8n - [Clique aqui](https://github.com/fleles324/fleles324/blob/main/n8n-files/Leitura%20de%20M%C3%ADdias%20com%20n8n/Leitura%20de%20midias)
+
+### Imagens
+
+Antigo
+![Imagem do WhatsApp de 2024-10-26 à(s) 14 31 23_71ac62ab](https://github.com/user-attachments/assets/db211483-c027-4935-b9d4-5fb677e09cb1)
+Novo
+![Imagem do WhatsApp de 2024-10-26 à(s) 14 33 04_adc0cd56](https://github.com/user-attachments/assets/f2a8242f-3671-468b-aeba-b09b8433ba79) 
+---
 
 # Projeto de Integração com n8n e Evolution V2
 
