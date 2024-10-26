@@ -50,7 +50,7 @@ Faça um push da sua branch:
 ```git push origin minha-nova-funcionalidade```
 Abra um Pull Request.
 Licença
-Este projeto está licenciado sob os termos da licença MIT. Veja o arquivo LICENSE para mais detalhes.
+Este projeto está licenciado sob os termos da licença MIT. Veja o arquivo [LICENSE](https://github.com/fleles324/fleles324/blob/main/LICENSE) para mais detalhes.
 
 Esperamos que este projeto contribua para melhorar a automação e gestão de processos. Caso tenha dúvidas, abra uma issue ou entre em contato!
 
