@@ -13,8 +13,8 @@ O **n8n** é uma plataforma de automação de workflows de código aberto, permi
 ### Evolution V2
 O **Evolution V2** é uma ferramenta voltada para a gestão e automação de negócios, permitindo a criação de fluxos de trabalho personalizados e facilitando o gerenciamento de operações. Ele é frequentemente utilizado junto a outras plataformas de automação para criar soluções completas.
 
-- **Site oficial**: [https://evolutionv2.com/](https://evolutionv2.com/)
-- **Documentação**: [https://docs.evolutionv2.com/](https://docs.evolutionv2.com/)
+- **Site oficial**: [https://evolution.com/](#)
+- **Documentação**: [docs evolution](https://doc.evolution-api.com/v2/pt/get-started/introduction)
 
 ## Funcionalidades do Projeto
 
@@ -31,10 +31,10 @@ O **Evolution V2** é uma ferramenta voltada para a gestão e automação de neg
 ---
 ### Passo a Passo
 1. Clone este repositório: 
-   ```bash
-   git clone https://github.com/fleles324/Leitura-de-Mídias-com-n8n.git
+   bash
+   ```git clone https://github.com/fleles324/Leitura-de-Mídias-com-n8n.git```
 
-   Siga as instruções de cada ferramenta para a configuração inicial.
+Siga as instruções de cada ferramenta para a configuração inicial.
 
 Configure as variáveis de ambiente conforme necessário.
 
@@ -47,8 +47,7 @@ Envie suas modificações:
 git commit -m "Minha nova funcionalidade"
 
 Faça um push da sua branch:
-git push origin minha-nova-funcionalidade
-
+```git push origin minha-nova-funcionalidade```
 Abra um Pull Request.
 Licença
 Este projeto está licenciado sob os termos da licença MIT. Veja o arquivo LICENSE para mais detalhes.
