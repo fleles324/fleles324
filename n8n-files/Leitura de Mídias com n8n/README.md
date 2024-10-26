@@ -1,3 +1,5 @@
+- [x] Leitura de Mídias com n8n []()
+
 # Projeto de Integração com n8n e Evolution V2
 
 Este repositório contém automações e scripts criados para integrar fluxos de trabalho utilizando o **n8n** e o **Evolution V2**, visando otimizar processos e gerenciar tarefas de maneira eficiente.
