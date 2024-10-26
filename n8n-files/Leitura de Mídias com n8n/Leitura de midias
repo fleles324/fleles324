@@ -1,0 +1,986 @@
+{
+  "meta": {
+    "instanceId": "a09197f2ebd5d0e70f4c2d405c2727a5edeaaeb2b140b3de436362e346eeb71f"
+  },
+  "nodes": [
+    {
+      "parameters": {
+        "content": "Texto",
+        "height": 203.08355795148253,
+        "width": 1168.1494749457222
+      },
+      "id": "e789578f-7f51-47e8-ad3f-2fbf34aa253d",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2380,
+        1380
+      ]
+    },
+    {
+      "parameters": {
+        "content": "Áudio",
+        "height": 203.08355795148253,
+        "width": 1164.8757062907616,
+        "color": 4
+      },
+      "id": "a291761d-ba3c-457b-a3d2-1130421e9067",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2380,
+        1600
+      ]
+    },
+    {
+      "parameters": {
+        "content": "Imagem",
+        "height": 203.08355795148253,
+        "width": 1160.739210437491,
+        "color": 6
+      },
+      "id": "6854d085-727a-4f14-82ec-3d82703098fb",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2380,
+        1820
+      ]
+    },
+    {
+      "parameters": {
+        "content": "Documentos",
+        "height": 203.08355795148253,
+        "width": 1159.070182964896,
+        "color": 7
+      },
+      "id": "cf03e128-3eb6-49bc-968a-a787b5c824a3",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2380,
+        2040
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $item(\"0\").$node[\"Switch\"].json[\"body\"][\"data\"][\"message\"][\"mediaUrl\"] }}",
+        "options": {}
+      },
+      "id": "5e2f2c3b-f3e3-452f-b220-2caf1932c21d",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2600,
+        1640
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Webhook').item.json.body.server_url }}/message/sendText/{{ $('Webhook').item.json.body.instance }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $('Webhook').item.json.body.apikey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "={{ $item(\"0\").$node[\"Webhook\"].json[\"body\"][\"data\"][\"key\"][\"remoteJid\"] }}"
+            },
+            {
+              "name": "text",
+              "value": "={{ $item(\"0\").$node[\"Merge\"].json[\"message\"] }}"
+            },
+            {
+              "name": "presence",
+              "value": "composing"
+            },
+            {
+              "name": "delay",
+              "value": "={{ 1200 }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "1b659a5d-17e0-472b-b720-4f9f8a33af1c",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3800,
+        1760
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Webhook').item.json.body.data.message.mediaUrl }}",
+        "options": {}
+      },
+      "id": "8d40a4a9-ade8-424a-9c97-45f9e00040cf",
+      "name": "HTTP Request3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2580,
+        1860
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Webhook').item.json.body.data.message.mediaUrl }}",
+        "options": {}
+      },
+      "id": "f67a2bf0-4303-4770-91ab-5117e8a0bb10",
+      "name": "HTTP Request6",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2580,
+        2060
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "options": {}
+      },
+      "id": "deab930d-c237-4436-8cf3-bf58d72a1d33",
+      "name": "Extrair Dados",
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        2760,
+        2060
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0edc0b80-6bd1-459f-99c7-8ae6ed3c7cc9",
+              "name": "message",
+              "value": "={{ $item(\"0\").$node[\"OpenAI7\"].json[\"content\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "39b63895-77f3-45b8-acf9-a4a8c2798acf",
+      "name": "Edit Fields3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3320,
+        1860
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "evolution",
+        "options": {}
+      },
+      "id": "2cd81f19-0323-431c-ac26-7db23f879740",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        1840,
+        1760
+      ],
+      "webhookId": "52e9391e-6946-41b6-a1a0-a2eb54b655c6"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=SEU PROMPT AQUI!\n\nUse o limite de apenas 100 palavras na sua resposta, respostas curtas ideais para enviar pelo WhatsApp.\n\nApós inserir as análises, o texto será gerado com as quebras de linha e caracteres especiais escapados. Não use Saltos de linhas!",
+              "role": "=system"
+            },
+            {
+              "content": "={{ $json.text }}",
+              "role": "=user"
+            }
+          ]
+        },
+        "options": {
+          "maxTokens": 200,
+          "temperature": 0.2
+        }
+      },
+      "id": "5974a94b-85cd-4753-b463-1f6f6cf79ec6",
+      "name": "OpenAI1",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.3,
+      "position": [
+        2940,
+        1640
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "iN4a97ryVNhyjXYE",
+          "name": "VendedorGas"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=SEU PROMPT AQUI!\n\nUse o limite de apenas 100 palavras na sua resposta, respostas curtas ideais para enviar pelo WhatsApp.\n\nApós inserir as análises, o texto será gerado com as quebras de linha e caracteres especiais escapados. Não use Saltos de linhas!",
+              "role": "=system"
+            },
+            {
+              "content": "={{ $('Webhook').item.json.body.data.message.extendedTextMessage?.text || '' }}{{ $('Webhook').item.json.body.data.message.imageMessage?.caption || '' }}{{ $('Webhook').item.json.body.data.message.conversation || '' }}",
+              "role": "=user"
+            }
+          ]
+        },
+        "options": {
+          "maxTokens": 200,
+          "temperature": 0.2
+        }
+      },
+      "id": "5672bb4f-c6f4-4728-a79d-08eea8463fce",
+      "name": "OpenAI2",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.3,
+      "position": [
+        2580,
+        1420
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "iN4a97ryVNhyjXYE",
+          "name": "VendedorGas"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "options": {}
+      },
+      "id": "83d90692-6f9d-4d7e-bf27-414c930cf95e",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.1,
+      "position": [
+        2780,
+        1640
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "iN4a97ryVNhyjXYE",
+          "name": "VendedorGas"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "813d13aa-0acc-408a-a3c9-aff2810df83c",
+              "name": "message",
+              "value": "={{ $item(\"0\").$node[\"OpenAI5\"].json[\"message\"][\"content\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d2cac67d-9d3f-4dc7-9888-28892445a729",
+      "name": "Edit Fields4",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3320,
+        2060
+      ]
+    },
+    {
+      "parameters": {
+        "content": "Mensagem de error!",
+        "height": 203.08355795148253,
+        "width": 1159.070182964896,
+        "color": 3
+      },
+      "id": "fe5b4e03-bf9b-471d-9952-8d528a90f9d7",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2380,
+        2260
+      ]
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=SEU PROMPT AQUI!\n\nUse o limite de apenas 100 palavras na sua resposta, respostas curtas ideais para enviar pelo WhatsApp.\n\nApós inserir as análises, o texto será gerado com as quebras de linha e caracteres especiais escapados. Não use Saltos de linhas!",
+              "role": "=system"
+            },
+            {
+              "content": "={{ $json.content }}",
+              "role": "=user"
+            }
+          ]
+        },
+        "options": {
+          "maxTokens": 200,
+          "temperature": 0.2
+        }
+      },
+      "id": "80f08d5d-66ac-463f-a280-04fce8d10dd4",
+      "name": "OpenAI4",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.3,
+      "position": [
+        2940,
+        1860
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "iN4a97ryVNhyjXYE",
+          "name": "VendedorGas"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=SEU PROMPT AQUI!\n\nUse o limite de apenas 100 palavras na sua resposta, respostas curtas ideais para enviar pelo WhatsApp.\n\nApós inserir as análises, o texto será gerado com as quebras de linha e caracteres especiais escapados. Não use Saltos de linhas!",
+              "role": "=system"
+            },
+            {
+              "content": "={{ $json.text }}",
+              "role": "=user"
+            }
+          ]
+        },
+        "options": {
+          "maxTokens": 200,
+          "temperature": 0.2
+        }
+      },
+      "id": "b1861e66-9443-469e-809d-25dfc7fde05f",
+      "name": "OpenAI5",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.3,
+      "position": [
+        2940,
+        2060
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "iN4a97ryVNhyjXYE",
+          "name": "VendedorGas"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "numberInputs": 5
+      },
+      "id": "27af497d-6485-4891-9570-7cfa1d0536b3",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        3620,
+        1740
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "39ce1016-e5e2-45a9-9a98-c3dc772d5522",
+              "leftValue": "={{ $('Webhook').item.json.body.data.message.audioMessage ? 'audio' : '' }}{{ $('Webhook').item.json.body.data.message.imageMessage ? 'image' : '' }}{{ $('Webhook').item.json.body.data.message.documentMessage ?'application/pdf' : '' }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "id": "853b13d3-3223-4400-bfa3-005c0bd7da27",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2000,
+        1760
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "operation": "analyze",
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "text": "sua função é ler a imagem e dizer o que tem neela",
+        "inputType": "base64",
+        "options": {}
+      },
+      "id": "bee7b37a-0a05-4b04-be0e-0fea06380e51",
+      "name": "OpenAI7",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.5,
+      "position": [
+        2760,
+        1860
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "iN4a97ryVNhyjXYE",
+          "name": "VendedorGas"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "101c3ff7-e997-43bb-8e99-fe82746c5993",
+                    "leftValue": "={{ $json.body.data.messageType }}",
+                    "rightValue": "conversation",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Text"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "4b94d2ac-53e5-4153-9377-4cc6db20cb1c",
+                    "leftValue": "={{ $('Webhook').item.json.body.data.message.audioMessage ? 'audio' : '' }}",
+                    "rightValue": "audio",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Áudio"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "300366d9-2416-4cf4-93c3-e48c8761c60f",
+                    "leftValue": "={{ $('Webhook').item.json.body.data.message.imageMessage ? 'image' : '' }}",
+                    "rightValue": "image",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "imageMessage"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "f33566fd-3eb9-45f4-934a-3a39e2adca6c",
+                    "leftValue": "={{ $item(\"0\").$node[\"Webhook\"].json[\"body\"][\"data\"][\"message\"][\"documentMessage\"][\"mimetype\"] }}",
+                    "rightValue": "application/pdf",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "documentMessage"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "none"
+        }
+      },
+      "id": "a7a4f27a-3a08-4eba-8f12-b30c6cd1eb2b",
+      "name": "Switch1",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [
+        2200,
+        1760
+      ]
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=seu objetivo e criar uma mensagem de erro e pedir pra pessoal tentar novamente\n\n### Modelo de resposta\n❌ *Erro:*\n```Nenhum arquivo foi recebido. Por favor, envie o arquivo novamente para continuar.```",
+              "role": "=system"
+            },
+            {
+              "content": "=arquivo não encontrado",
+              "role": "=user"
+            }
+          ]
+        },
+        "options": {
+          "maxTokens": 200,
+          "temperature": 0.2
+        }
+      },
+      "id": "3cfa0fc4-2249-43df-a475-78657c264f89",
+      "name": "OpenAI6",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.3,
+      "position": [
+        2580,
+        2300
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "iN4a97ryVNhyjXYE",
+          "name": "VendedorGas"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6bc61ee1-4ea8-4655-a3bf-e8a15d8aaabe",
+              "name": "message",
+              "value": "={{ $item(\"0\").$node[\"OpenAI2\"].json[\"message\"][\"content\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "01308db8-d347-4395-9f29-de6ed3e9f32d",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3320,
+        1420
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8e4f9b8b-2a23-4ca0-94e3-385102c90130",
+              "name": "message",
+              "value": "={{ $item(\"0\").$node[\"OpenAI1\"].json[\"message\"][\"content\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4eaeff33-3bd1-4a63-a473-424a4ff54b41",
+      "name": "Edit Fields2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3320,
+        1640
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "813d13aa-0acc-408a-a3c9-aff2810df83c",
+              "name": "message",
+              "value": "={{ $json.message.content }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2896f86c-f99f-47e7-bc35-b6fef761a3b5",
+      "name": "Edit Fields5",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3320,
+        2300
+      ]
+    }
+  ],
+  "connections": {
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request3": {
+      "main": [
+        [
+          {
+            "node": "OpenAI7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request6": {
+      "main": [
+        [
+          {
+            "node": "Extrair Dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extrair Dados": {
+      "main": [
+        [
+          {
+            "node": "OpenAI5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "OpenAI1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields4": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "OpenAI4": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI5": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OpenAI6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI7": {
+      "main": [
+        [
+          {
+            "node": "OpenAI4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "OpenAI2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Request3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Request6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI6": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Edit Fields5": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 4
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {}
+}
