@@ -12,13 +12,13 @@
           "mimeType": "audio/mp4"
         }
       },
-      "id": "344fa0dc-9375-4db8-b450-f0985e765500",
+      "id": "032f67df-c32a-41b1-8c71-2d7416f460f4",
       "name": "Convert to File",
       "type": "n8n-nodes-base.convertToFile",
       "typeVersion": 1.1,
       "position": [
-        1940,
-        360
+        2650,
+        120
       ]
     },
     {
@@ -43,13 +43,13 @@
           }
         }
       },
-      "id": "51aa167b-62dd-4f2e-b313-1447621ff48e",
+      "id": "1095098e-967c-45b0-aba7-3e195acec137",
       "name": "Puxa Base64 pelo ID da Conversa",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1740,
-        360
+        2450,
+        120
       ]
     },
     {
@@ -138,13 +138,13 @@
         },
         "options": {}
       },
-      "id": "c0b42b35-cb2e-45ec-92c1-b1fbe383b4b1",
+      "id": "ca1a9ff0-4b96-4983-838c-8496e241812a",
       "name": "normalizacao",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        980,
-        460
+        1690,
+        220
       ]
     },
     {
@@ -169,13 +169,13 @@
           }
         }
       },
-      "id": "8dae3bfe-6a94-441a-8940-6eac31ce2cb3",
+      "id": "8a437d4e-54d7-43f1-bd95-8e827cc6a684",
       "name": "EvolutionV1",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2340,
-        360
+        3050,
+        120
       ]
     },
     {
@@ -183,13 +183,13 @@
         "url": "={{ $('normalizacao').item.json.body.data.message.mediaUrl }}",
         "options": {}
       },
-      "id": "6ac8a21e-8b0b-4269-8d17-80e2ca191edf",
+      "id": "93445c0e-3c31-47c6-9479-319475445a2d",
       "name": "HTTP Request",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1740,
-        560
+        2450,
+        320
       ]
     },
     {
@@ -198,13 +198,13 @@
         "operation": "transcribe",
         "options": {}
       },
-      "id": "88e7eb06-6750-4328-bca1-88b7b1d29783",
+      "id": "babbc9f3-ee73-4b9b-98b4-32cbf2bf09a9",
       "name": "OpenAI1",
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.5,
       "position": [
-        2140,
-        360
+        2850,
+        120
       ],
       "credentials": {
         "openAiApi": {
@@ -253,13 +253,13 @@
         },
         "options": {}
       },
-      "id": "97cc8764-97a8-4b5d-b19d-6c98c2396ec6",
+      "id": "e4b1d840-ea53-4d13-86a0-a092d8ed793f",
       "name": "EvolutionV2",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2140,
-        560
+        2850,
+        320
       ]
     },
     {
@@ -269,13 +269,13 @@
         "width": 1774.9377226647362,
         "color": 4
       },
-      "id": "3ddb3b54-7155-48af-91fd-61e31dfd73cb",
+      "id": "0126bbcf-509f-4271-b236-55353a0477aa",
       "name": "Sticky Note",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        740,
-        240
+        1450,
+        0
       ]
     },
     {
@@ -284,13 +284,13 @@
         "operation": "transcribe",
         "options": {}
       },
-      "id": "807a8e89-e178-47bd-8b2f-3e429828f203",
+      "id": "60ee7a68-b152-4f7d-bc2a-b884fccbf8e7",
       "name": "OpenAI",
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.5,
       "position": [
-        1940,
-        560
+        2650,
+        320
       ],
       "credentials": {
         "openAiApi": {
@@ -306,13 +306,13 @@
         "width": 209.9118511263468,
         "color": 6
       },
-      "id": "9ff9ccfa-5e4c-442c-96ef-61f94f3c4c16",
+      "id": "5b204402-dcd0-449d-99fc-39f3c452ae34",
       "name": "Sticky Note1",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        2100,
-        300
+        2800,
+        60
       ]
     },
     {
@@ -322,13 +322,13 @@
         "width": 209.9118511263468,
         "color": 6
       },
-      "id": "4c424ab7-b32c-4f09-b0d9-98b1612c5a28",
+      "id": "9439108c-c4d6-4877-a7d0-7058033f6442",
       "name": "Sticky Note2",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1900,
-        520
+        2580,
+        280
       ]
     },
     {
@@ -338,13 +338,13 @@
         "width": 191.1067580803136,
         "color": 3
       },
-      "id": "cc247961-71b9-4daa-8839-458c5522aade",
+      "id": "b6c25079-c6e2-4dba-859d-5cd825354dd6",
       "name": "Sticky Note3",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        760,
-        376
+        1470,
+        136
       ]
     },
     {
@@ -382,13 +382,13 @@
         },
         "options": {}
       },
-      "id": "45e6be5b-0950-4bce-9324-122e83141e10",
+      "id": "aef27263-ed7f-418d-ae6d-77db3d842a59",
       "name": "If",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1140,
-        460
+        1850,
+        220
       ]
     },
     {
@@ -426,14 +426,30 @@
         },
         "options": {}
       },
-      "id": "a29e5676-35ae-4159-81df-21ce650e046b",
+      "id": "6d3d66d6-8800-493d-a200-db181f69f5fa",
       "name": "If2",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        1340,
-        460
+        2050,
+        220
       ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "transcricao",
+        "options": {}
+      },
+      "id": "54d08b50-5fa3-401f-831a-a6e0728df29b",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        1510,
+        220
+      ],
+      "webhookId": "95eb9207-69da-4fad-9a3d-4c4ca248e0bf"
     },
     {
       "parameters": {
@@ -492,13 +508,13 @@
         },
         "options": {}
       },
-      "id": "186c75e5-63dc-4d26-9113-197f3cc93f96",
+      "id": "a98865d5-29b3-4b35-b61e-7c68147c9a40",
       "name": "Switch",
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        1540,
-        460
+        2250,
+        220
       ]
     },
     {
@@ -508,30 +524,14 @@
         "width": 209.9118511263468,
         "color": 5
       },
-      "id": "8c892ffd-4ed5-4d67-974a-b83eda4c27c9",
+      "id": "5e6af21d-e42e-4829-9489-f8df925aef90",
       "name": "Sticky Note4",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1100,
-        380
+        1810,
+        140
       ]
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "transcricao",
-        "options": {}
-      },
-      "id": "a73875d2-1b49-4e9e-9597-cdf38b4ea328",
-      "name": "Webhook",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
-      "position": [
-        800,
-        460
-      ],
-      "webhookId": "95eb9207-69da-4fad-9a3d-4c4ca248e0bf"
     }
   ],
   "connections": {
@@ -625,6 +625,17 @@
         ]
       ]
     },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "normalizacao",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "Switch": {
       "main": [
         [
@@ -637,17 +648,6 @@
         [
           {
             "node": "HTTP Request",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Webhook": {
-      "main": [
-        [
-          {
-            "node": "normalizacao",
             "type": "main",
             "index": 0
           }
