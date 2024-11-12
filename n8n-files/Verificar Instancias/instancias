@@ -1,0 +1,433 @@
+{
+  "meta": {
+    "instanceId": "a09197f2ebd5d0e70f4c2d405c2727a5edeaaeb2b140b3de436362e346eeb71f"
+  },
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "16523aad-e787-4693-b784-f1aa88224b72",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        220,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "defca144-443a-4ab9-b103-ed064e0d1592",
+              "leftValue": "={{ $json.instance.state }}",
+              "rightValue": "open",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "49dcf077-dd97-4690-b8ea-60639f192e95",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        660,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $item(\"0\").$node[\"Configuração\"].json[\"baseUrl\"] }}/instance/fetchInstances",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $item(\"0\").$node[\"Configuração\"].json[\"globalKey\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "7925583f-e246-40f9-9975-1adf1997f40b",
+      "name": "Puxar Instancias",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1040,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $item(\"0\").$node[\"Configuração\"].json[\"baseUrl\"] }}/instance/connectionState/{{ $item(\"0\").$node[\"Loop Over Items\"].json[\"name\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $item(\"0\").$node[\"Configuração\"].json[\"globalKey\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "d3d56ca7-e1b9-498b-b5a7-c1ec897ff7a7",
+      "name": "Verificar Status",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        420,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $item(\"0\").$node[\"Configuração\"].json[\"baseUrl\"] }}/instance/restart/{{ $item(\"0\").$node[\"Verificar Status\"].json[\"instance\"][\"instanceName\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $item(\"0\").$node[\"Configuração\"].json[\"globalKey\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "d0b27096-ff30-40f0-bdfd-496b017416a5",
+      "name": "Reiniciar Instancia",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        860,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $item(\"0\").$node[\"Configuração\"].json[\"baseUrl\"] }}/message/sendText/{{ $item(\"0\").$node[\"Verificar Status\"].json[\"instance\"][\"instanceName\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $item(\"0\").$node[\"Configuração\"].json[\"globalKey\"] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "={{ $item(\"0\").$node[\"Configuração\"].json[\"number\"] }}"
+            },
+            {
+              "name": "text",
+              "value": "=🕒 *Status:* {{ $item(\"0\").$node[\"If\"].json[\"instance\"][\"state\"] }}\n📍 Localização: {{ $item(\"0\").$node[\"If\"].json[\"instance\"][\"instanceName\"] }}\n\n{{ $item(\"0\").$node[\"Date & Time\"].json[\"formattedDate\"] }}"
+            },
+            {
+              "name": "delay",
+              "value": "={{ 1200 }}"
+            },
+            {
+              "name": "presence",
+              "value": "composing"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "8f209035-eff0-49dd-9e22-3ffdb9a63858",
+      "name": "Enviar Relatório",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1040,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 10
+            }
+          ]
+        }
+      },
+      "id": "67bf9cb2-9aee-4c2a-be3b-bbb8751e6e7c",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        220,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "formatDate",
+        "date": "={{ $now }}",
+        "format": "custom",
+        "customFormat": "EEEE,  dd MMMM yyyy 'ás' hh:mm:ss",
+        "options": {
+          "timezone": true
+        }
+      },
+      "id": "a5e462f2-f4a8-4370-86ff-859096211550",
+      "name": "Date & Time",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 2,
+      "position": [
+        440,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "content": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[Rick Leles](http://wa.me/559281260140?text=oi)",
+        "height": 900.1259823039863,
+        "width": 1056.7760535468776,
+        "color": 4
+      },
+      "id": "ba791545-aaef-4de3-b666-e89c2a7229c7",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        160,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "content": "\n        ══════════════════════════════════════════════════════════════════════════════════════\n\t\t\t\n        ███████╗████████╗ █████╗ ████████╗██╗   ██╗███████╗    ██╗   ██╗ ██╗    ██████╗     ██╗\n        ██╔════╝╚══██╔══╝██╔══██╗╚══██╔══╝██║   ██║██╔════╝    ██║   ██║███║   ██╔═████╗   ███║\n        ███████╗   ██║   ███████║   ██║   ██║   ██║███████╗    ██║   ██║╚██║   ██║██╔██║   ╚██║\n        ╚════██║   ██║   ██╔══██║   ██║   ██║   ██║╚════██║    ╚██╗ ██╔╝ ██║   ████╔╝██║    ██║\n        ███████║   ██║   ██║  ██║   ██║   ╚██████╔╝███████║     ╚████╔╝  ██║██╗╚██████╔╝██╗ ██║\n        ╚══════╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚══════╝      ╚═══╝   ╚═╝╚═╝ ╚═════╝ ╚═╝ ╚═╝\n                                                             \n        ══════════════════════════════════════════════════════════════════════════════════════",
+        "height": 173.55119887893187,
+        "width": 852.0624826984258,
+        "color": 4
+      },
+      "id": "dfda9706-0721-4a82-92c9-b3b0c3b5d8b2",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        160,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "content": "\n        ═══════════════════════════════════════════════════════════════════════\n\t\n        ██████╗ ██╗ ██████╗██╗  ██╗    ██╗     ███████╗██╗     ███████╗███████╗\n        ██╔══██╗██║██╔════╝██║ ██╔╝    ██║     ██╔════╝██║     ██╔════╝██╔════╝\n        ██████╔╝██║██║     █████╔╝     ██║     █████╗  ██║     █████╗  ███████╗\n        ██╔══██╗██║██║     ██╔═██╗     ██║     ██╔══╝  ██║     ██╔══╝  ╚════██║\n        ██║  ██║██║╚██████╗██║  ██╗    ███████╗███████╗███████╗███████╗███████║\n        ╚═╝  ╚═╝╚═╝ ╚═════╝╚═╝  ╚═╝    ╚══════╝╚══════╝╚══════╝╚══════╝╚══════╝\n                                                                       \n        ═══════════════════════════════════════════════════════════════════════",
+        "height": 179.73577145728055,
+        "width": 696.742139439925,
+        "color": 4
+      },
+      "id": "140eba61-cbe7-4b26-a235-e4331f93e64c",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        520,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4d688e8c-1ae5-4049-badb-5c927e71fd83",
+              "name": "baseUrl",
+              "value": "https://suabase.com.br",
+              "type": "string"
+            },
+            {
+              "id": "843e0154-bf6b-4398-981e-18f5ca1cca0f",
+              "name": "globalKey",
+              "value": "sua api global",
+              "type": "string"
+            },
+            {
+              "id": "d0799c1e-527a-4f08-9443-1f2c51c767f1",
+              "name": "number",
+              "value": "seu numero para receber o relatorio",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9e977f5b-cfeb-4d68-a63e-32c1073553bb",
+      "name": "Configuração",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        740,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### Coloque as sua credenciais aqui",
+        "height": 216.19558037149625,
+        "width": 284.1536702918889,
+        "color": 5
+      },
+      "id": "7114c008-912d-42a5-9793-6e3baaffa06b",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        640,
+        160
+      ]
+    }
+  ],
+  "connections": {
+    "Loop Over Items": {
+      "main": [
+        null,
+        [
+          {
+            "node": "Verificar Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Reiniciar Instancia",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Puxar Instancias": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verificar Status": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reiniciar Instancia": {
+      "main": [
+        [
+          {
+            "node": "Enviar Relatório",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar Relatório": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Date & Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Date & Time": {
+      "main": [
+        [
+          {
+            "node": "Configuração",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Configuração": {
+      "main": [
+        [
+          {
+            "node": "Puxar Instancias",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {}
+}
