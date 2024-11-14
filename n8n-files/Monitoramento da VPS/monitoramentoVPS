@@ -1,0 +1,276 @@
+{
+  "meta": {
+    "instanceId": "a09197f2ebd5d0e70f4c2d405c2727a5edeaaeb2b140b3de436362e346eeb71f"
+  },
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 4
+            }
+          ]
+        }
+      },
+      "id": "d6a6a623-09c3-4807-8678-3cf5a853f0ac",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        520,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "command": "docker system prune -a --force"
+      },
+      "id": "b6813e2a-b16a-404e-b92d-3d9291cf2e9b",
+      "name": "docker system prune -a",
+      "type": "n8n-nodes-base.ssh",
+      "typeVersion": 1,
+      "position": [
+        780,
+        660
+      ],
+      "credentials": {
+        "sshPassword": {
+          "id": "PyYP6iFu2SkIwF7m",
+          "name": "SSH Password account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "command": "echo \"CPU: $(top -bn1 | grep 'Cpu(s)' | sed 's/.*, *\\([0-9.]*\\)%* id.*/\\1/' | awk '{print 100 - $1\"%\"}'), MEMÓRIA: $(free -m | awk '/Mem:/ { printf(\"%.2f%\"), $3/$2 * 100 }'), HD: $(df -h / | awk 'NR==2 {print $5}')\""
+      },
+      "id": "9776c634-dfc4-4bfb-b123-8ae760a11351",
+      "name": "puxa os dados da vps",
+      "type": "n8n-nodes-base.ssh",
+      "typeVersion": 1,
+      "position": [
+        520,
+        840
+      ],
+      "credentials": {
+        "sshPassword": {
+          "id": "PyYP6iFu2SkIwF7m",
+          "name": "SSH Password account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Captura o valor de stdout do node anterior\nconst sshOutput = $json[\"stdout\"];\n\n// Extrair as porcentagens de CPU, Memória e HD usando regex\nconst cpuUsageMatch = sshOutput.match(/CPU: (\\d+(\\.\\d+)?)/);\nconst memoryUsageMatch = sshOutput.match(/MEMÓRIA: (\\d+(\\.\\d+)?)/);\nconst hdUsageMatch = sshOutput.match(/HD: (\\d+(\\.\\d+)?)/);\n\nif (cpuUsageMatch && memoryUsageMatch && hdUsageMatch) {\n    const cpu = parseFloat(cpuUsageMatch[1]);\n    const memoria = parseFloat(memoryUsageMatch[1]);\n    const hd = parseFloat(hdUsageMatch[1]);\n\n    // Retornar as porcentagens como um JSON com os itens separados\n    return {\n        cpu,\n        memoria,\n        hd\n    };\n} else {\n    throw new Error(\"Erro: Não foi possível extrair os valores de CPU, Memória e HD\");\n}"
+      },
+      "id": "989e4085-6cc8-400b-9bcc-d27cd6a1cf2f",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        780,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7e75fe56-99c8-4e8a-a9b4-ddeb77017bb5",
+              "leftValue": "={{ $item(\"0\").$node[\"Code\"].json[\"cpu\"] }}",
+              "rightValue": 60,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            },
+            {
+              "id": "daacb5d3-2569-43e5-afc3-ab5a78e4980e",
+              "leftValue": "={{ $item(\"0\").$node[\"Code\"].json[\"memoria\"] }}",
+              "rightValue": 60,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            },
+            {
+              "id": "0b83b92e-1fee-455f-ba51-da4f8ac50ef7",
+              "leftValue": "={{ $item(\"0\").$node[\"Code\"].json[\"hd\"] }}",
+              "rightValue": 80,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "id": "e055289b-08f6-4389-b9fa-270d7d205b96",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        520,
+        1020
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://suaurlbase.com.br/message/sendMedia/suainstacia",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "sua apikey aqui"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "55+DDD+ seu numero"
+            },
+            {
+              "name": "mediatype",
+              "value": "image"
+            },
+            {
+              "name": "mimetype",
+              "value": "image/png"
+            },
+            {
+              "name": "caption",
+              "value": "=🚨 *Alerta Importante de VPS!*\n*-------------------------------*\n\n*CPU:* {{ $json.cpu }}%\n*MEMÓRIA:* {{ $json.memoria }}%\n*HD:* {{ $json.hd }}%\n\n*-------------------------------*\nPowered by *©️RL STUDIO®️* {{ $now.format('yyyy') }}"
+            },
+            {
+              "name": "media",
+              "value": "https://s3.rlstudiosa.com.br/typebot/Alerta%20Importante%20de%20VPS%20by_%20Rick%20Leles.png"
+            },
+            {
+              "name": "fileName",
+              "value": "Imagem.png"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "c6410180-d952-4782-aa9c-41d466821888",
+      "name": "evolution envia msg",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        780,
+        1020
+      ]
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 724.1955546070834,
+        "width": 639.4245096600879,
+        "color": 4
+      },
+      "id": "c5ce2ff0-3745-4bcb-bc3a-6ffab06eca6d",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        400,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "content": "\n        ═══════════════════════════════════════════════════════════════\n        ██╗   ██╗██████╗ ███████╗    ██╗   ██╗ ██╗    ██████╗     ██╗\n        ██║   ██║██╔══██╗██╔════╝    ██║   ██║███║   ██╔═████╗   ███║\n        ██║   ██║██████╔╝███████╗    ██║   ██║╚██║   ██║██╔██║   ╚██║\n        ╚██╗ ██╔╝██╔═══╝ ╚════██║    ╚██╗ ██╔╝ ██║   ████╔╝██║    ██║\n         ╚████╔╝ ██║     ███████║     ╚████╔╝  ██║██╗╚██████╔╝██╗ ██║\n          ╚═══╝  ╚═╝     ╚══════╝      ╚═══╝   ╚═╝╚═╝ ╚═════╝ ╚═╝ ╚═╝    \n  \n        ═══════════════════════════════════════════════════════════════",
+        "width": 638.4615384615397,
+        "color": 4
+      },
+      "id": "2673862b-5035-44c6-8b1c-910ee8b3bd54",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        400,
+        460
+      ]
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "docker system prune -a",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "docker system prune -a": {
+      "main": [
+        [
+          {
+            "node": "puxa os dados da vps",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "puxa os dados da vps": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "evolution envia msg",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {}
+}
